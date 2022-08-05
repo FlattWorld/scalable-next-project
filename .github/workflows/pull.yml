@@ -1,0 +1,39 @@
+name: Continuous Integration Actions
+on: pull_request
+jobs:
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-18.04
+    steps:
+      with:
+          node-version: "16.x"
+      run: |
+        npm i
+        [ -f .eslintrc.json ]
+        [ -f .babelrc ] 
+      name: Eslint report
+      run: npm run lint
+  prettier:
+    name: Prettier
+    runs-on: ubuntu-18.04
+    steps:
+      with:
+          node-version: "16.x"
+      run: |
+        npm i
+        [ -f .prettierrc.js ]
+      name: Prettier report
+      run: npm run prettier
+  Testing:
+    name: Testing
+    runs-on: ubuntu-18.04
+    steps:
+      with:
+          node-version: "16.x"
+      run: |
+        npm i
+        [ -f jest.setup.js ]
+        [ -f jest.config.js ]
+      name: Test report
+      run: npm run test
+        
