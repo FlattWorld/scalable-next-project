@@ -1,10 +1,9 @@
-import TermsAndConditions from '../index'
-import { render, screen } from '@testing-library/react'
+import { render } from '@testing-library/react'
+import TermsAndConditions from '../TermsAndConditions'
 
 describe('TermsAndConditions', () => {
   it('renders without crashing', () => {
     const { baseElement } = render(<TermsAndConditions />)
-    screen.debug()
     expect(baseElement).toBeTruthy()
   })
 })
